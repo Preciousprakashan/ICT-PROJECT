@@ -1,0 +1,115 @@
+/* Import the Poppins font */
+@import url('https://fonts.googleapis.com/css?family=Poppins:600&display=swap');
+
+/* Universal reset */
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Body styling */
+body {
+    background-color: #f4f6f8;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+}
+
+/* Login container */
+.login-container {
+    width: 400px;
+    padding: 2.5rem;
+    background-color: #fff;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    border-radius: 16px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Avatar image */
+.avatar-img {
+    height: 90px;
+    margin-bottom: 1.5rem;
+}
+
+/* Login title styling */
+.login-title {
+    color: #333;
+    font-size: 2rem;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+}
+
+/* Input field wrapper */
+.input-wrapper {
+    width: 100%;
+    margin-bottom: 1.2rem;
+    padding: 0.3rem 0;
+}
+
+/* Forgot password link styling */
+.forgot-password {
+    color: #666;
+    font-size: 0.9rem;
+    text-decoration: none;
+    margin-top: 0.75rem;
+    transition: color 0.3s ease;
+}
+
+.forgot-password:hover {
+    color: #32be8f;
+}
+
+/* Login button styling */
+.login-btn {
+    width: 100%;
+    height: 50px;
+    background-color: #32be8f;
+    color: #fff;
+    font-size: 1rem;
+    font-weight: 600;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    text-transform: uppercase;
+    margin-top: 1.5rem;
+}
+
+.login-btn:hover {
+    background-color: #28a47e;
+}
+
+/* Button focus styling for accessibility */
+.login-btn:focus {
+    outline: 2px solid #28a47e;
+}
+
+/* Material-UI helper text error styling */
+.MuiFormHelperText-root {
+    color: #d32f2f;
+    font-size: 0.85rem;
+    margin-top: 0.3rem;
+}
+
+/* Optional: Add responsiveness for smaller screens */
+@media (max-width: 480px) {
+    .login-container {
+        width: 90%;
+        padding: 1.5rem;
+    }
+
+    .login-title {
+        font-size: 1.5rem;
+    }
+
+    .login-btn {
+        height: 45px;
+        font-size: 0.9rem;
+    }
+}
