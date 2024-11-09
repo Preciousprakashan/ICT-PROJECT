@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Lora&display=swap');
+
+:root{
+  --gradient-top-bottom: linear-gradient(to top, #1c92d2, #f2fcfe);
+  --gradient-left-right: linear-gradient(to right, #fe8c00, #f83600);
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background: white;
+  color: black;
+  font-family: arial;
+}
+
+.popular{
+  display: flex;
+  margin-top: 5rem;
+  margin-left: 5rem;
+  align-items: center;
+}
+
+.popular-card, .popular-card-alt{
+  width: 500px;
+  height: 380px;
+  padding: 1.5rem;
+  border-radius: 16px;
+  background: var(--gradient-top-bottom);
+  display:flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  color: white;
+}
+
+.popular-card-alt{
+  display: none;
+}
+
+.popular-card h1{
+  font-size: 1.8rem;
+  margin-bottom: 0;
+}
+
+.popular-card p {
+  font-family: "Lora", serif;
+  margin-bottom: 0;
+}
+
+.popular-card p a,
+.popular-card-alt p a{
+  color: #0089c7;
+  text-decoration: none;
+  cursor: pointer;
+  transition: .5s color;
+}
+
+.popular-card p a:hover,
+.popular-card-alt p a:hover{
+  color: #000;
+  cursor: pointer;
+}
+
+.cards {
+  display: flex;
+  padding: 3rem;
+  overflow-x: scroll;
+}
+
+.card{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background: white;
+  border-radius: 16px;
+  width: 400px;
+  min-width: 250px;
+  min-height: 350px;
+ box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;
+  padding: 1.5rem;
+  transition: 0.2s;
+}
+
+.date-published{
+  font-family: "Lora", serif;
+  color: black;
+  font-size: 14px;
+}
+
+.date-published-prefix{
+  color : black;
+}
+
+.card-title a{
+  font-size: 20px;
+  line-height: 1.5rem;
+  color: black;
+  text-decoration: none;
+  transition: .2s color;
+}
+
+.card-title a:hover{
+  background: var(--gradient-left-right);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  cursor: pointer;
+}
+
+
+
+
+/*  card scrollbar */
+.cards::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+.cards::-webkit-scrollbar-track {
+  background: white;
+  height: 10px;
+}
+
+.cards::-webkit-scrollbar-thumb {
+  background: white;
+  border-radius: 10px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
+  background: #1c92d2;
+}
+
+/* Card Hover */
+.card:hover {
+  transform: translateY(-1rem);
+}
+
+.card:not(:first-child) {
+  margin-left: -130px;
+}
+
+.card:hover ~ .card {
+  transform: translateX(130px);
+}
+
+.card:nth-child(1){
+  z-index: 1;
+}
+
+.card:nth-child(2) {
+  z-index: 2;
+}
+.card:nth-child(3) {
+  z-index: 3;
+}
+.card:nth-child(4) {
+  z-index: 4;
+}
+.card:nth-child(5) {
+  z-index: 5;
+}
+.card:nth-child(6) {
+  z-index: 6;
+}
+.card:nth-child(7) {
+  z-index: 7;
+}
+.card:nth-child(8) {
+  z-index: 8;
+}
+.card:nth-child(9) {
+  z-index: 9;
+}
+.card:nth-child(10) {
+  z-index: 10;
+}
+
+
+/* Card Responsive */
+
+@media (max-width: 992px) {
+  .popular {
+    margin-left: 1rem;
+  }
+
+  .popular-card {
+    display: none;
+  }
+
+  .popular-card-alt {
+    display: block;
+    writing-mode: vertical-rl;
+    transform: rotate(180deg);
+    width: 310px;
+    padding: 2rem 1rem;
+  }
+  .popular-card-alt h1 {
+    font-size: 20px;
+  }
+  .popular-card-alt h1,
+  .popular-card-alt p {
+    margin: 0;
+  }
+}
+
+</style>
+<body>
+ <section class="popular">
+   
+        <!-- Popular Card On Large Devices-->
+    <section class="popular-card">
+      <h1>Latest<br> News</h1>
+    </section>
+   
+       <!-- Popular Card On Small Devices-->
+        <section class="popular-card-alt">
+            <h1>Latest News</h1>
+        </section>
+   
+   <!-- Cards List -->
+   <section class="cards">
+     <!-- Card 1 -->
+     <article class="card">
+           <!-- Card Header -->
+         <header class="card-header">
+           <p class="date-published">
+            <span class="date-published-prefix">Article</span>
+              on Feb 1, 2021
+                    </p>
+           <h2 class="card-title"><a href="https://css-tricks.com/on-auto-generated-atomic-css/">On Auto-Generated Atomic CSS</a></h2>
+                </header>
+             <!-- Card Header Ends-->
+         <!-- Card Body -->
+           <div class="card-body">
+
+                    
+     </article>
+     
+     <!-- Card 2 -->
+       <article class="card">
+          <!-- Card Header -->
+         <header class="card-header">
+                    <p class="date-published"><span class="date-published-prefix">Article</span> Jan 6, 2021</p>
+           <h2 class="card-title"><a href="https://css-tricks.com/whack-a-mole-the-css-edition/"> Whack-a-Mole: The CSS Edition</a></h2>
+                </header>
+                <!-- Card Header Ends-->
+         <!-- Card Body -->
+                <div class="card-body">
+
+                    
+
+                </div>
+                <!-- Card Body Ends -->
+         
+       </article>
+     
+       <article class="card">
+          <!-- Card Header -->
+                <header class="card-header">
+                    <p class="date-published"><span class="date-published-prefix">Article</span> Jan 12, 2021</p>
+                    <h2 class="card-title"><a href="https://css-tricks.com/how-to-add-commas-between-a-list-of-items-dynamically-with-css/">How to Add Commas Between a List of Items Dynamically with CSS</a></h2>
+                </header>
+                <!-- Card Header Ends-->
+
+                <!-- Card Body -->
+                <div class="card-body">
+
+                    
+
+                </div>
+                <!-- Card Body Ends -->
+
+            </article>
+
+            <!-- Card 4 -->
+            <article class="card">
+
+                <!-- Card Header -->
+                <header class="card-header">
+                    <p class="date-published"><span class="date-published-prefix">Article</span> Jan 27, 2021</p>
+                    <h2 class="card-title"><a href="https://css-tricks.com/the-holy-grail-layout-with-css-grid/">The Holy Grail Layout with CSS Grid</a></h2>
+                </header>
+                <!-- Card Header Ends-->
+
+                <!-- Card Body-->
+                <div class="card-body">
+
+                    
+                </div>
+                <!-- Card Body Ends-->
+
+            </article>
+
+            <!-- Card 5 -->
+            <article class="card">
+
+                <!-- Card Header -->
+                <header class="card-header">
+                    <p class="date-published">
+                        <span class="date-published-prefix">Article</span>
+                       Feb 12, 2021
+                    </p>
+                    <h2 class="card-title"><a href="https://css-tricks.com/when-using-important-is-the-right-choice/">When Using !important is The Right Choice</a></h2>
+                </header>
+                <!-- Card Header Ends-->
+
+                <!-- Card Body -->
+                <div class="card-body">
+
+                    
+
+                </div>
+                <!-- Card Body Ends-->
+
+            </article>
+
+            <!-- Card 6 -->
+            <article class="card">
+
+                <!-- Card Header -->
+                <header class="card-header">
+                    <p class="date-published"><span class="date-published-prefix">Article</span> Jan 11, 2021</p>
+                    <h2 class="card-title"><a href="https://css-tricks.com/animating-with-lottie/">Animating with Lottie</a></h2>
+                </header>
+                <!-- Card Header Ends-->
+
+                <!-- Card Body -->
+                <div class="card-body">
+
+                    
+
+                </div>
+                <!-- Card Body Ends -->
+
+            </article>
+
+            <!-- Card 7 -->
+            <article class="card">
+
+                <!-- Card Header -->
+                <header class="card-header">
+                    <p class="date-published"><span class="date-published-prefix">Article</span> Nov 8, 2019</p>
+                    <h2 class="card-title"><a href="https://css-tricks.com/aspect-ratio-boxes/">Aspect Ratio Boxes</a></h2>
+                </header>
+                <!-- Card Header Ends-->
+
+                <!-- Card Body -->
+                <div class="card-body">
+
+                    
+                </div>
+                <!-- Card Body Ends -->
+
+            </article>
+
+            <!-- Card 8 -->
+            <article class="card">
+
+                <!-- Card Header -->
+                <header class="card-header">
+                    <p class="date-published"><span class="date-published-prefix">Article</span> Feb 4, 2021</p>
+                    <h2 class="card-title"><a href="https://css-tricks.com/re-creating-the-porky-pig-animation-from-looney-tunes-in-css/">Re-Creating the Porky Pig Animation from Looney Tunes in CSS</a></h2>
+                </header>
+                <!-- Card Header Ends-->
+
+                <!-- Card Body-->
+                <div class="card-body">
+
+                    
+                </div>
+                <!-- Card Body Ends-->
+
+            </article>
+
+            <!-- Card 9 -->
+            <article class="card">
+
+                <!-- Card Header -->
+                <header class="card-header">
+                    <p class="date-published"><span class="date-published-prefix">Article</span> Jan 24, 2021</p>
+                    <h2 class="card-title"><a href="https://css-tricks.com/servers-cool-once-again/">Servers: Cool Once Again</a></h2>
+                </header>
+                <!-- Card Header Ends-->
+
+                <!-- Card Body -->
+                <div class="card-body">
+
+                   
+                    
+                </div>
+                <!-- Card Body Ends -->
+
+            </article>
+
+            <!-- Card 10 -->
+            <article class="card">
+
+                <!-- Card Header -->
+                <header class="card-header">
+                    <p class="date-published"><span class="date-published-prefix">Article</span> Jan 28, 2021</p>
+                    <h2 class="card-title"><a href="https://css-tricks.com/components-server-side-vs-client-side/">Components: Server-Side vs. Client-Side</a></h2>
+                </header>
+                <!-- Card Header Ends-->
+
+                <!-- Card Body-->
+                <div class="card-body">
+
+                    
+                </div>
+                <!-- Card Body Ends-->
+
+            </article>
+   </section>
+</section>
+
+
+</body>
+</html>
+
+

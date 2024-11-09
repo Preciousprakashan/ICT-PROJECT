@@ -1,12 +1,11 @@
-// Login.jsx
 import React, { useState } from 'react';
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
-import { Link, useNavigate } from 'react-router-dom';
-import axiosInstance from '../../axiosinterception';
-import './Login.css';
-import avatar from '../../../../../images/avatar.svg';
+import { useNavigate } from 'react-router-dom';
+import axiosInstance from '../../axiosinterception'; // Importing axios instance
+import styles from './Login.module.css'; // Style imports
+import avatar from '../../../../../images/avatar.svg'; // Avatar Image
 
 const Login = () => {
     const [user, setUser] = useState({ username: '', password: '' });
@@ -20,30 +19,33 @@ const Login = () => {
 
     const sentData = async () => {
         try {
-            const response = await axiosInstance.post("/user", user);
+            // Use the updated route here
+            const response = await axiosInstance.post("/user/login", user);
+
             if (response.data.usertoken) {
-                localStorage.setItem("token", response.data.usertoken);
+                localStorage.setItem("token", response.data.usertoken); // Save the token
                 alert(`Welcome ${user.username}`);
-                navigate('/Home');
+                navigate('/Home'); // Navigate to the Home page after login
             }
         } catch (error) {
-            if (error.response && error.response.data) {
-                const { fieldErrors } = error.response.data;
-                setErrors({
-                    username: fieldErrors?.username || '',
-                    password: fieldErrors?.password || '',
-                });
-            } else {
-                alert('An error occurred. Please try again.');
+            // Handle specific error responses from the backend
+            if (error.response) {
+                if (error.response.status === 404) {
+                    setErrors({ username: 'User not found' });
+                } else if (error.response.status === 401) {
+                    setErrors({ password: 'Invalid credentials' });
+                } else {
+                    alert('An error occurred. Please try again.');
+                }
             }
         }
     };
 
     return (
-        <Box className="login-container">
-            <img src={avatar} alt="Avatar" className="avatar-img" />
-            <h2 className="login-title">Welcome Back</h2>
-            <div className="input-wrapper">
+        <Box className={styles["login-container"]}>
+            <img src={avatar} alt="Avatar" className={styles["avatar-img"]} />
+            <h2 className={styles["login-title"]}>Welcome Back</h2>
+            <div className={styles["input-wrapper"]}>
                 <TextField
                     label="Username"
                     name="username"
@@ -53,10 +55,9 @@ const Login = () => {
                     variant="outlined"
                     error={!!errors.username}
                     helperText={errors.username}
-                    aria-label="Username"
                 />
             </div>
-            <div className="input-wrapper">
+            <div className={styles["input-wrapper"]}>
                 <TextField
                     label="Password"
                     type="password"
@@ -67,18 +68,15 @@ const Login = () => {
                     variant="outlined"
                     error={!!errors.password}
                     helperText={errors.password}
-                    aria-label="Password"
                 />
             </div>
             <Button
                 variant="contained"
                 onClick={sentData}
-                className="login-btn"
-                aria-label="Log In Button"
+                className={styles["login-btn"]}
             >
                 Log In
             </Button>
-            <Link to="#" className="forgot-password">Forgot Password?</Link>
         </Box>
     );
 };

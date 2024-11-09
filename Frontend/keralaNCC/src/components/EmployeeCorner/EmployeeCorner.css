@@ -1,0 +1,121 @@
+@import url('https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200');
+@import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css");
+
+.employee-corner {
+  width: 100%;
+  background-color: #ffffff;
+  padding: 3rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 70px;
+}
+
+.employee-title {
+  color: #1c92d2;
+  font-size: 2.5rem;
+  font-family: 'Lato', sans-serif;
+  margin-bottom: 1rem;
+}
+
+.employee-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(200px, 1fr)); /* Ensures up to 4 columns with a minimum width */
+  gap: 3rem;
+  margin-top: 3rem;
+  justify-content: center; /* Centers items in rows with fewer than 4 cards */
+  grid-auto-flow: dense; /* Keeps cards packed and centered */
+}
+
+.employee-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 1.5rem;
+  border-radius: 0.5rem;
+  transition: transform 0.3s, box-shadow 0.3s, background-color 0.3s;
+}
+
+.employee-item:hover {
+  background-color: #f9fafb;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+  transform: translateY(-5px);
+}
+
+.employee-icon-container {
+  width: 60px;
+  height: 60px;
+  background-color: #f3f4f6;
+  border-radius: 9999px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.employee-item:hover .employee-icon-container {
+  background-color: #2563eb; /* Blue background on hover */
+}
+
+.employee-icon {
+  font-size: 2.75rem;
+  color: #6b7280;
+  transition: color 0.3s;
+}
+
+.employee-item:hover .employee-icon {
+  color: #ffffff; /* White icon color on hover */
+}
+
+.employee-heading {
+  margin-top: 1rem;
+  font-family: 'Open Sans', sans-serif;
+  color: #1e293b;
+  font-weight: 500;
+  font-size: 1rem;
+}
+
+/* Responsive Adjustments */
+
+/* Medium devices (tablets, 768px and up) */
+@media (max-width: 1024px) {
+  .employee-grid {
+    grid-template-columns: repeat(2, 1fr); /* Two columns for tablets */
+  }
+
+  .employee-title {
+    font-size: 2rem; /* Slightly smaller title for smaller screens */
+  }
+}
+
+/* Small devices (mobile, 480px and up) */
+@media (max-width: 768px) {
+  .employee-grid {
+    grid-template-columns: 1fr; /* One column for mobile */
+    gap: 2rem; /* Reduced gap on smaller screens */
+  }
+
+  .employee-title {
+    font-size: 1.75rem; /* Smaller title for mobile */
+  }
+
+  .employee-item {
+    padding: 1.2rem; /* Smaller padding on mobile */
+  }
+
+  .employee-icon-container {
+    width: 50px; /* Smaller icons for mobile */
+    height: 50px;
+  }
+
+  .employee-icon {
+    font-size: 2.2rem; /* Smaller icon size */
+  }
+
+  .employee-heading {
+    font-size: 0.9rem; /* Slightly smaller heading text */
+  }
+}

@@ -1,0 +1,140 @@
+:root {
+  --gradient-top-bottom: linear-gradient(to top, #1c92d2, #f2fcfe);
+  --gradient-left-right: linear-gradient(to right, #fe8c00, #f83600);
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background: white;
+  color: black;
+  font-family: Arial, sans-serif;
+}
+
+.latest-news-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 2rem;
+}
+
+.latest-news-heading {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom:0;
+}
+
+.article-card {
+  background: white !important;
+  border: none !important;
+}
+
+.cards-container {
+  max-width: 1100px;
+  overflow-x: auto;
+  padding: 3rem;
+  padding-top: 1rem;
+  padding-left: 1rem;
+  position: relative;
+}
+
+.cards {
+  display: flex;
+  padding: 3rem;
+  overflow-x: scroll;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background: white;
+  border-radius: 16px;
+  width: 400px;
+  min-width: 250px;
+  max-height: 350px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;
+  padding: 1.5rem;
+  transition: 0.2s;
+  margin-right: 10px;
+  text-decoration: none;
+}
+
+.card-header {
+  position: relative;
+  background-color: white;
+  padding: 0.5rem;
+  border-radius: 8px;
+  border-bottom: none;
+}
+
+.date-published {
+  font-family: "Lora", serif;
+  color: black;
+  font-size: 14px;
+}
+
+.card-title {
+  font-size: 20px;
+  line-height: 1.5rem;
+  color: black;
+  transition: color 0.2s;
+  overflow-y: auto;
+  max-height: 150px;
+}
+
+.card:hover {
+  transform: translateY(-1rem);
+}
+
+.card:hover .card-title {
+  color: #fe8c00;
+}
+
+.cards::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+.cards::-webkit-scrollbar-track {
+  background: white;
+}
+
+.cards::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background: #1c92d2;
+}
+
+/* Fade Effect on both ends of the cards */
+.cards-container::before,
+.cards-container::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 30px;
+  background: linear-gradient(to right, rgba(255, 255, 255, 1), rgba(255, 255, 255, 0));
+  z-index: 1;
+}
+
+.cards-container::before {
+  left: 0;
+}
+
+.cards-container::after {
+  right: 0;
+}
+
+@media (max-width: 992px) {
+  .latest-news-container {
+    margin-left: 1rem;
+  }
+
+  .latest-news-heading {
+    font-size: 1.5rem;
+  }
+
+  .cards {
+    padding: 1rem;
+  }
+}

@@ -1,23 +1,22 @@
 import axios from 'axios';
 
-// Create an axios instance with a base URL
+// Creating an axios instance with base URL
 const axiosInstance = axios.create({
-    baseURL: 'http://localhost:4000'
+    baseURL: 'http://localhost:4000', // Replace with your actual server URL if needed
 });
 
-// Add request interceptor to the axios instance
-axiosInstance.interceptors.request.use((config) => {
-    const accessToken = localStorage.getItem("token");
-    if (accessToken) {
-        if (config) {
-            // Set the token in the request headers
-            config.headers.token = accessToken;
+// Request interceptor to add JWT token to the Authorization header
+axiosInstance.interceptors.request.use(
+    (config) => {
+        const token = localStorage.getItem('token');
+        if (token) {
+            config.headers['Authorization'] = `Bearer ${token}`; // Attach token if available
         }
+        return config;
+    },
+    (error) => {
+        return Promise.reject(error);
     }
-    return config;
-}, (error) => {
-    return Promise.reject(error);
-});
+);
 
-// Export axios instance
 export default axiosInstance;
