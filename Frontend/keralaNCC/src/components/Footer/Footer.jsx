@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom"; // Import Link for internal navigation
 import "./Footer.css";
 
 const Footer = () => {
@@ -47,6 +48,7 @@ const Footer = () => {
         <div className="footer-column">
           <h2>Quick Link</h2>
           <ul>
+            <li><Link to="/">Admin</Link></li> {/* Updated to use internal Link component */}
             <li><a href="#">How to Apply</a></li>
           </ul>
         </div>

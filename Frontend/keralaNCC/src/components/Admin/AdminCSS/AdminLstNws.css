@@ -1,0 +1,207 @@
+.lstnws-container {
+    max-width: 1000px;
+    margin-left: 200px;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+}
+
+.lstnws-heading {
+    font-size: 1.5rem;
+    text-align: center;
+    color: #333;
+    margin-bottom: 30px;
+}
+
+.lstnws-cards-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.lstnws-add-card {
+    width: 100%;
+    max-width: 100%;
+    margin-bottom: 20px;
+    background-color: #ffffff;
+    color: black;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+.lstnws-cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+    justify-content: center;
+}
+
+.lstnws-card {
+    width: 100%;
+    height: 300px;
+    background-color: #ffffff;
+    color: black;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: transform 0.2s ease-in-out;
+    overflow: hidden;
+    padding: 15px;
+}
+
+.lstnws-card:hover {
+    transform: translateY(-5px);
+}
+
+.lstnws-card-title-scrollable {
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: #333;
+    margin: 0;
+    padding-right: 10px;
+  
+    overflow-y: auto;
+}
+
+.lstnws-card-url {
+    font-size: 0.85rem;
+    color: #777;
+    margin-bottom: 10px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.lstnws-loading,
+.lstnws-error {
+    text-align: center;
+    color: #d32f2f;
+    margin-top: 20px;
+}
+
+.lstnws-card-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    border-top: 1px solid #ddd;
+    margin-top: auto;
+}
+
+.lstnws-btn {
+    flex: 1;
+    font-size: 0.875rem;
+    padding: 6px 12px;
+    text-transform: none;
+    border-radius: 4px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.lstnws-btn-edit {
+    background-color: #1976d2;
+    color: #fff;
+}
+
+.lstnws-btn-edit:hover {
+    background-color: rgba(21, 101, 192, 0.2);
+    color:#1565c0;
+}
+
+.lstnws-btn-delete {
+    background-color: #d32f2f;
+    color: #fff;
+}
+
+.lstnws-btn-delete:hover {
+    background-color: rgba(255, 0, 0, 0.2); /* Set background opacity on hover */
+    color:rgb(255, 0, 0);
+}
+
+
+
+/* Container Styles */
+.edit-dialog .MuiPaper-root {
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    padding: 20px;
+    max-width: 800px;
+    width: 100%;
+    height :auto;
+}
+
+/* Title Styles */
+.edit-dialog-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #333;
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+/* Content Styles */
+.edit-dialog-content {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    padding: 20px;
+}
+
+/* Input Field Styles */
+.edit-dialog-input .MuiInputBase-root {
+    margin: 10px;
+    border-radius: 4px;
+    font-size: 1rem;
+}
+
+/* Button Container Styles */
+.edit-dialog-actions {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
+}
+
+/* Button Styles */
+.edit-dialog-save-btn {
+    background-color: #1976d2;
+    color: #fff;
+    font-weight: bold;
+    padding: 8px 16px;
+    text-transform: none;
+}
+
+.edit-dialog-save-btn:hover {
+    background-color: rgba(21, 101, 192, 0.2);
+    color:#1565c0;
+}
+
+.edit-dialog-cancel-btn {
+    background-color: #d32f2f;
+    color: #fff;
+    font-weight: bold;
+    padding: 8px 16px;
+    text-transform: none;
+}
+
+.edit-dialog-cancel-btn:hover {
+    background-color: rgba(255, 0, 0, 0.2); /* Set background opacity on hover */
+    color:rgb(255, 0, 0);
+}
+
+
+
+/* Grid adjustments for different screen sizes */
+@media (min-width: 768px) {
+    .lstnws-cards-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 1024px) {
+    .lstnws-cards-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}

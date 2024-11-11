@@ -1,4 +1,3 @@
-// pdfDetails.js (Schema)
 const mongoose = require("mongoose");
 
 const PdfSchema = new mongoose.Schema({
@@ -7,11 +6,11 @@ const PdfSchema = new mongoose.Schema({
     required: true,
   },
   url_link: {
-    type: String, // To store the filename of the uploaded PDF
+    type: String,  // To store external URL link
     required: false,
   },
   pdf_link: {
-    type: String, // To store the URL link
+    type: String,  // To store the filename of the uploaded PDF
     required: false,
   },
   date: {

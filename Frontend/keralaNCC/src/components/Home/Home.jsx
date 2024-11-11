@@ -6,6 +6,7 @@ import CarouselCard from '../Carousel/Carousel';
 import AboutUs from '../AboutUs/AboutUs';
 import Footer from '../Footer/Footer';
 import EmployeeCorner from '../EmployeeCorner/EmployeeCorner';
+import Admin from '../Admin/Admin';
 
 const Home = () => {
     const [data, setData] = useState([]);
@@ -24,12 +25,13 @@ const Home = () => {
 
     return (
         <>
-            <Navbar />
+            <Admin/>
+            {/* <Navbar />
             <CarouselCard/>
             <LatestNews /> 
             <AboutUs /> 
             <EmployeeCorner/> 
-            <Footer />  
+            <Footer />   */}
 
             <br />
 
