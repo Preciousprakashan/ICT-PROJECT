@@ -98,20 +98,26 @@
 }
 
 /* Media Queries for Responsiveness */
+
+/* For tablets and medium screens */
 @media (max-width: 768px) {
     .about-us-content {
         flex-direction: column;
         text-align: center;
+        padding: 10px; /* Reduce padding */
     }
 
     .about-us-image {
         margin-bottom: 20px;
         max-width: 100%;
+        padding: 0;
     }
 
     .about-us-image img {
         height: 250px;
+        width: 100%;
         max-width: 90%;
+        object-fit: cover;
     }
 
     .about-us-heading {
@@ -147,5 +153,27 @@
 
     .about-us-image img {
         height: 200px;
+        max-width: 100%;
+        object-fit: cover;
+    }
+}
+
+/* For very small devices (portrait mode phones) */
+@media (max-width: 360px) {
+    .about-us-heading {
+        font-size: 1.2rem;
+    }
+
+    .about-us-paragraph {
+        font-size: 0.85rem;
+    }
+
+    .about-us-button {
+        font-size: 0.85rem;
+        padding: 0.5rem 1.2rem;
+    }
+
+    .about-us-image img {
+        height: 180px;
     }
 }

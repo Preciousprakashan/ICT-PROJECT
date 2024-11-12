@@ -1,56 +1,50 @@
 /* General Carousel Styling */
-.carousel-item img {
-    width: 100%;
-    height: 65vh; /* Adjust height as desired */
-    object-fit: cover; /* Ensures the image covers the entire slide area without stretching */
-    filter: brightness(90%); /* Slightly dim the images */
-    transition: transform 0.5s ease; /* Smooth transition on hover */
+.customcarousel-container {
+  padding-top: 50px;
+  width: 100%;
+  max-width: 100%;
+  height: 600px; /* Fixed height for the carousel */
+  overflow: hidden; /* Hide the overflow of image */
+  position: relative; /* Positioning context for carousel controls */
+}
+
+.customcarousel-item {
+  position: relative; /* Ensures the image stack properly */
+  height: 100%; /* Ensures the item takes up the full height */
+}
+
+.customcarousel-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Ensure the image covers the container without stretching */
+  filter: brightness(90%); /* Slightly dim the images */
+  transition: none; /* Remove hover effect */
+}
+
+/* Bootstrap Carousel Controls Adjustment */
+.carousel-control-prev, .carousel-control-next {
+  top: 50%; /* Vertically center the buttons */
+  transform: translateY(-50%); /* Ensure buttons are centered */
+  z-index: 2; /* Ensure buttons are above the image */
+}
+
+.carousel-control-prev {
+  left: 15px; /* Adjust as needed */
+}
+
+.carousel-control-next {
+  right: 15px; /* Adjust as needed */
+}
+
+/* Responsive Adjustments */
+@media (max-width: 992px) {
+  .customcarousel-container {
+    height: 400px; /* Slightly smaller height for medium screens */
   }
-  
-  .carousel-item img:hover {
-    transform: scale(1.05); /* Slight zoom-in effect on hover */
+}
+
+@media (max-width: 768px) {
+  .customcarousel-container {
+    height: 300px; /* Smaller height for mobile screens */
   }
-  
-  /* Carousel Caption Styling */
-  .carousel-caption {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    color: #ffffff;
-    text-align: center;
-    background: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
-    padding: 1rem 2rem;
-    border-radius: 8px;
-    max-width: 80%; /* Prevents text from going too wide on larger screens */
-  }
-  
-  .carousel-caption h3 {
-    font-size: 2rem;
-    font-weight: bold;
-    margin-bottom: 0.5rem;
-  }
-  
-  .carousel-caption p {
-    font-size: 1.2rem;
-  }
-  
-  /* Responsive Adjustments */
-  @media (max-width: 768px) {
-    .carousel-caption {
-      top: auto;
-      bottom: 20px;
-      transform: translate(-50%, 0);
-      max-width: 90%;
-      padding: 0.8rem 1.5rem;
-    }
-  
-    .carousel-caption h3 {
-      font-size: 1.5rem;
-    }
-  
-    .carousel-caption p {
-      font-size: 1rem;
-    }
-  }
-  
+}

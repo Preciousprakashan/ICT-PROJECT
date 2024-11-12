@@ -21,7 +21,7 @@ body {
 .latest-news-heading {
   font-size: 2rem;
   font-weight: bold;
-  margin-bottom:0;
+  margin-bottom: 0;
 }
 
 .article-card {
@@ -36,12 +36,15 @@ body {
   padding-top: 1rem;
   padding-left: 1rem;
   position: relative;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .cards {
   display: flex;
   padding: 3rem;
   overflow-x: scroll;
+  width: 100%;
 }
 
 .card {
@@ -58,6 +61,7 @@ body {
   transition: 0.2s;
   margin-right: 10px;
   text-decoration: none;
+  box-sizing: border-box;
 }
 
 .card-header {
@@ -125,6 +129,7 @@ body {
   right: 0;
 }
 
+/* Tablet and Mobile responsiveness */
 @media (max-width: 992px) {
   .latest-news-container {
     margin-left: 1rem;
@@ -134,7 +139,61 @@ body {
     font-size: 1.5rem;
   }
 
+  .cards-container {
+    padding: 2rem;
+  }
+
   .cards {
     padding: 1rem;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .card {
+    width: 100%;
+    max-width: 350px;
+    margin-right: 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .latest-news-heading {
+    font-size: 1.3rem;
+  }
+
+  .cards-container {
+    padding: 1rem;
+  }
+
+  .card {
+    width: 100%;
+    max-width: 280px;
+    margin-bottom: 1rem;
+    margin-right: 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .latest-news-heading {
+    font-size: 1.2rem;
+  }
+
+  .cards-container {
+    padding: 1rem;
+  }
+
+  .card {
+    width: 100%;
+    max-width: 250px;
+    margin-bottom: 1rem;
+    margin-right: 0;
+  }
+
+  .card-title {
+    font-size: 16px;
+  }
+
+  .date-published {
+    font-size: 12px;
   }
 }

@@ -1,30 +1,47 @@
+import React, { useEffect, useState } from 'react';
 import Carousel from 'react-bootstrap/Carousel';
+import './Carousel.css';
 
 function CustomCarousel() {
+  const [images, setImages] = useState([]);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    const fetchImages = async () => {
+      setLoading(true);
+      try {
+        const response = await fetch("http://localhost:4000/carousel/images"); // Adjust the URL as needed
+        const data = await response.json();
+        if (data.status === "ok") {
+          setImages(data.data);
+        } else {
+          setError("Failed to load images");
+        }
+      } catch (error) {
+        setError("Error fetching images. Please try again.");
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchImages();
+  }, []);
+
   return (
-    <Carousel data-bs-theme="dark">
-      <Carousel.Item>
-        <img className="d-block w-100" src="https://defencedirecteducation.com/wp-content/uploads/2024/01/F9XQL_kaUAA_uD9-1536x649.jpeg" alt="First slide" />
-        <Carousel.Caption>
-          {/* <h3>First Slide Label</h3>
-          <p>Sample description for the first slide.</p> */}
-        </Carousel.Caption>
-      </Carousel.Item>
-      <Carousel.Item>
-        <img className="d-block w-100" src="https://defencedirecteducation.com/wp-content/uploads/2024/01/F9XQL_kaUAA_uD9-1536x649.jpeg" alt="Second slide" />
-        <Carousel.Caption>
-          {/* <h3>Second Slide Label</h3>
-          <p>Sample description for the second slide.</p> */}
-        </Carousel.Caption>
-      </Carousel.Item>
-      <Carousel.Item>
-        <img className="d-block w-100" src="https://defencedirecteducation.com/wp-content/uploads/2024/01/F9XQL_kaUAA_uD9-1536x649.jpeg" alt="Third slide" />
-        <Carousel.Caption>
-          {/* <h3>Third Slide Label</h3>
-          <p>Sample description for the third slide.</p> */}
-        </Carousel.Caption>
-      </Carousel.Item>
-    </Carousel>
+    <div className="customcarousel-container">
+      {loading && <p>Loading images...</p>}
+      {error && <p>{error}</p>}
+      {!loading && !error && images.length > 0 && (
+        <Carousel data-bs-theme="dark">
+          {images.map((image, index) => (
+            <Carousel.Item key={index} className="customcarousel-item">
+              <img className="d-block w-100" src={image.imageUrl} alt={`Slide ${index + 1}`} />
+            </Carousel.Item>
+          ))}
+        </Carousel>
+      )}
+    </div>
   );
 }
 

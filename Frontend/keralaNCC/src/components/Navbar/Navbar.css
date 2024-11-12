@@ -2,61 +2,107 @@
 
 /* Ensure Navbar has white background */
 .MuiAppBar-root {
-    background-color: #ffffff !important;
-  }
-  
-  button {
-    border-radius: 8px;
-    border: 1px solid transparent;
-    padding: 0.6em 1.2em;
-    font-size: 1em;
-    font-weight: 500;
-    font-family: "Varela", sans-serif;
-    background-color: #ffffff;
-    cursor: pointer;
-    transition: border-color 0.25s;
-  }
-  
-  button:hover {
-    border-color: #9a9a9a;
-  }
-  
-  button:focus,
-  button:focus-visible {
-    outline: 4px auto -webkit-focus-ring-color;
-  }
-  
-  /* Navbar anchor tag styling (specific to navbar menu) */
-  .navbar-links a {
-    font-weight: 500;
-    color: #1c92d2;
-    text-decoration: inherit;
-    font-family: "Varela", sans-serif;
-  }
-  
-  .navbar-links a:hover {
-    color: #1c92d2;
-    border-bottom: 3px solid #1c92d2;
-    transform: scaleX(1);
-  }
-  
-  /* Align navbar elements */
-  .navbar-logo {
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    gap: 0.5rem; /* Space between logo and website name */
-  }
-  
+  background-color: #ffffff !important;
+}
+
+/* Button styling */
+button {
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: "Varela", sans-serif;
+  background-color: #ffffff;
+  cursor: pointer;
+  transition: border-color 0.25s;
+}
+
+button:hover {
+  border-color: #9a9a9a;
+}
+
+button:focus,
+button:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
+}
+
+/* Navbar anchor tag styling (specific to navbar menu) */
+.navbar-links a {
+  font-weight: 500;
+  color: #1c92d2;
+  text-decoration: inherit;
+  font-family: "Varela", sans-serif;
+}
+
+.navbar-links a:hover{
+  color: #1c92d2;
+  border-bottom: 3px solid #1c92d2;
+  transform: scaleX(1);
+}
+
+/* Align navbar elements */
+.navbar-logo {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 0.5rem; /* Space between logo and website name */
+}
+
+.navbar-links {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem; /* Space between nav items */
+}
+
+/* Ensure other anchor tags (not in navbar) do not inherit the styles */
+a {
+  text-decoration: none; /* Prevent underline globally */
+  color: inherit; /* Inherit color from parent */
+}
+
+/* Mobile responsiveness: Navbar becomes a hamburger menu */
+@media (max-width: 768px) {
   .navbar-links {
-    display: flex;
-    justify-content: flex-end;
-    gap: 1rem; /* Space between nav items */
+      display: none; /* Hide navbar items on small screens */
+      flex-direction: column;
+      position: absolute;
+      top: 60px; /* Adjust based on your navbar height */
+      right: 0;
+      background-color: white;
+      width: 100%;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      text-align: center;
   }
-  
-  /* Ensure other anchor tags (not in navbar) do not inherit the styles */
-  a {
-    text-decoration: none; /* Prevent underline globally */
-    color: inherit; /* Inherit color from parent */
+
+  .navbar-links a {
+      padding: 1em;
+      width: 100%;
   }
-  
+
+  .navbar-links.active {
+      display: flex; /* Show links when the menu is active */
+  }
+
+  /* Hamburger icon */
+  .hamburger {
+      display: block;
+      cursor: pointer;
+      font-size: 1.5rem;
+      color: #1c92d2;
+      background: none;
+      border: none;
+      padding: 0.5em;
+  }
+
+  .hamburger:hover {
+      color: #9a9a9a;
+  }
+}
+
+/* For smaller devices (max-width: 480px) */
+@media (max-width: 480px) {
+  .navbar-links a {
+      font-size: 0.9rem;
+  }
+}

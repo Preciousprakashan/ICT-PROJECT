@@ -2,10 +2,11 @@ import React, { useState } from 'react';
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import axiosInstance from '../../axiosinterception'; // Importing axios instance
 import styles from './Login.module.css'; // Style imports
 import avatar from '../../../../../images/avatar.svg'; // Avatar Image
+
 
 const Login = () => {
     const [user, setUser] = useState({ username: '', password: '' });
@@ -25,7 +26,7 @@ const Login = () => {
             if (response.data.usertoken) {
                 localStorage.setItem("token", response.data.usertoken); // Save the token
                 alert(`Welcome ${user.username}`);
-                navigate('/Home'); // Navigate to the Home page after login
+                navigate('/Admin'); // Navigate to the Home page after login
             }
         } catch (error) {
             // Handle specific error responses from the backend
@@ -77,6 +78,12 @@ const Login = () => {
             >
                 Log In
             </Button>
+            <br />
+            <Link to="/Home">
+              <Button variant="contained">
+                Home
+              </Button>
+            </Link>
         </Box>
     );
 };

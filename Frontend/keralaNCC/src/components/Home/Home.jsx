@@ -9,33 +9,19 @@ import EmployeeCorner from '../EmployeeCorner/EmployeeCorner';
 import Admin from '../Admin/Admin';
 
 const Home = () => {
-    const [data, setData] = useState([]);
-    
-    useEffect(() => {
-        // Fetch data from the backend API
-        axios.get('http://localhost:4000/data')
-            .then(response => {
-                console.log(response.data); // Log the data for verification
-                setData(response.data); // Set the fetched data to the state
-            })
-            .catch(error => {
-                console.error('Error fetching data:', error); // Log any errors
-            });
-    }, []);
 
     return (
         <>
-            <Admin/>
-            {/* <Navbar />
-            <CarouselCard/>
-            <LatestNews /> 
-            <AboutUs /> 
-            <EmployeeCorner/> 
-            <Footer />   */}
-
-            <br />
-
-
+            <Navbar />
+            <CarouselCard />
+            <LatestNews />
+            <div id="aboutus">
+            <AboutUs />
+            </div>
+            <div id="employee-corner">
+                <EmployeeCorner />
+            </div>
+            <Footer />
         </>
     );
 };

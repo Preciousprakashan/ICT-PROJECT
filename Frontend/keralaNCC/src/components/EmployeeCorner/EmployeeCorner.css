@@ -10,7 +10,8 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-bottom: 70px;
+  margin-bottom: 0px;
+  padding-bottom: 5rem;
 }
 
 .employee-title {

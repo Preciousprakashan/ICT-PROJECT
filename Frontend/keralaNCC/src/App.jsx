@@ -11,6 +11,7 @@ import './App.css';
 import Home from './components/Home/Home';
 
 import { PrivateRoutes } from './components/PrivateRoutes/PrivateRoutes';
+import Admin from './components/Admin/Admin';
 
 function App() {
   const [count, setCount] = useState(0)
@@ -18,14 +19,16 @@ function App() {
   return (
     <>
       <Routes>
-        <Route path='/' element={<Login />} /> 
+        <Route path='/' element={<Login />} />
+        <Route path='/Home' element={<Home />} />
+         
 
         <Route element={<PrivateRoutes />}>
           <Route 
-            path='/Home' 
+            path='/Admin' 
             element={
               <>
-                <Home />
+                <Admin/>
               </>
             } 
           />

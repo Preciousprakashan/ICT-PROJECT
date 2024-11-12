@@ -8,8 +8,8 @@ require('dotenv').config();
 require('./db/connection'); // Connect to MongoDB
 
 const userRoutes = require('./basicroutes/userRoutes');
-const basicRoutes = require('./basicroutes/basicRoutes');
-const fileRoutes = require('./basicroutes/pdfRoutes'); // New route for file handling
+const fileRoutes = require('./basicroutes/pdfRoutes');
+const carouselRoutes = require('./basicroutes/carouselRoutes');
 
 // Middleware setup
 app.use(morgan('dev'));
@@ -28,8 +28,8 @@ app.use("/files", express.static(filesDir));
 
 // Routes
 app.use('/user', userRoutes);           // User-related requests
-app.use('/', basicRoutes);              // Course-related requests
-app.use('/api/files', fileRoutes);      // File handling API (modified to avoid route conflict)
+app.use('/api/files', fileRoutes);
+app.use('/carousel', carouselRoutes);      
 
 // Error handling for unknown routes
 app.use((req, res) => {

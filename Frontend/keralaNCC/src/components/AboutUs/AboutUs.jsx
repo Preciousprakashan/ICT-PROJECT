@@ -45,10 +45,10 @@ const AboutUs = () => {
                          Discipline and Adventure Training. It has emerged as the biggest uniformed youth organization of the country symbolizing 
                          its motto Unity and Discipline.
                     </p>
-                    <button className="about-us-button" role="button">Learn More</button>
+                    <button className="about-us-button" role="button" >Learn More</button>
                 </div>
             </div>
-        </div>
+        </div >
     );
 };
 
