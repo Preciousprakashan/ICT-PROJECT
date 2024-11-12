@@ -43,11 +43,16 @@ const LatestNews = () => {
             <section className="cards">
               {articles.map((article, index) => (
                 <div key={index} className="card">
-                  <a href={article.url_link || `/files/${article.pdf_link}`} className="card-content">
+                  <a
+                    href={article.url_link || article.pdf_link}
+                    className="card-content"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
                     <article className='article-card'>
                       <header className="card-header">
                         <p className="date-published">
-                          <span className="date-published-prefix">Article</span> on {new Date(article.date).toLocaleDateString()}
+                          <span className="date-published-prefix">Date</span> {new Date(article.date).toLocaleDateString()}
                         </p>
                         <h2 className="card-title">{article.title}</h2>
                       </header>
@@ -56,6 +61,7 @@ const LatestNews = () => {
                 </div>
               ))}
             </section>
+
           </div>
         )}
       </section>

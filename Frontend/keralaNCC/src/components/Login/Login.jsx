@@ -26,7 +26,7 @@ const Login = () => {
             if (response.data.usertoken) {
                 localStorage.setItem("token", response.data.usertoken); // Save the token
                 alert(`Welcome ${user.username}`);
-                navigate('/Admin'); // Navigate to the Home page after login
+                navigate('/Admin'); // Navigate to the Admin page after login
             }
         } catch (error) {
             // Handle specific error responses from the backend
